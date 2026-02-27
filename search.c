@@ -56,12 +56,12 @@ bool SEARCH_START(int *start_x, int *start_y, int dir) {
     // 先搜左边第一列
     if (dir == 1) {
         for (int r = IMG_BOTTOM - 1; r > stop; --r) {
-            if (POINT_BLACK(IMG_LEFT, r) && POINT_BLACK(IMG_LEFT, r - 1) && POINT_BLACK(IMG_LEFT, r - 2) &&
-                POINT_BLACK(IMG_LEFT, r - 4) && POINT_BLACK(IMG_LEFT, r - 6)) {
+            if (POINT_BLACK(r, IMG_LEFT) && POINT_BLACK(r - 1, IMG_LEFT) && POINT_BLACK(r - 2, IMG_LEFT) &&
+                POINT_BLACK(r - 4, IMG_LEFT) && POINT_BLACK(r - 6, IMG_LEFT)) {
                 break;
             }
-            if (POINT_WHITE(IMG_LEFT, r) && POINT_BLACK(IMG_LEFT, r - 1) && POINT_BLACK(IMG_LEFT, r - 2) &&
-                POINT_BLACK(IMG_LEFT, r - 4) && POINT_BLACK(IMG_LEFT, r - 6)) {
+            if (POINT_WHITE(r, IMG_LEFT) && POINT_BLACK(r - 1, IMG_LEFT) && POINT_BLACK(r - 2, IMG_LEFT) &&
+                POINT_BLACK(r - 4, IMG_LEFT) && POINT_BLACK(r - 6, IMG_LEFT)) {
                 *start_x = IMG_LEFT;
                 *start_y = r;
                 return true;
@@ -85,12 +85,12 @@ bool SEARCH_START(int *start_x, int *start_y, int dir) {
     else if (dir == -1) {
         // 先搜右边最后一列 (从下往上)
         for (int r = IMG_BOTTOM - 1; r > stop; --r) {
-            if (POINT_BLACK(IMG_RIGHT, r) && POINT_BLACK(IMG_RIGHT, r - 1) && POINT_BLACK(IMG_RIGHT, r - 2) &&
-                POINT_BLACK(IMG_RIGHT, r - 4) && POINT_BLACK(IMG_RIGHT, r - 6)) {
+            if (POINT_BLACK(r, IMG_RIGHT) && POINT_BLACK(r - 1, IMG_RIGHT) && POINT_BLACK(r - 2, IMG_RIGHT) &&
+                POINT_BLACK(r - 4, IMG_RIGHT) && POINT_BLACK(r - 6, IMG_RIGHT)) {
                 break;
             }
-            if (POINT_WHITE(IMG_RIGHT, r) && POINT_BLACK(IMG_RIGHT, r - 1) && POINT_BLACK(IMG_RIGHT, r - 2) &&
-                POINT_BLACK(IMG_RIGHT, r - 4) && POINT_BLACK(IMG_RIGHT, r - 6)) {
+            if (POINT_WHITE(r, IMG_RIGHT) && POINT_BLACK(r - 1, IMG_RIGHT) && POINT_BLACK(r - 2, IMG_RIGHT) &&
+                POINT_BLACK(r - 4, IMG_RIGHT) && POINT_BLACK(r - 6, IMG_RIGHT)) {
                 *start_x = IMG_RIGHT;
                 *start_y = r;
                 return true;
